@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <!--    here the swipes come in -->
+    <!--    the resolution-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/exo_track_selection_view"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@drawable/exo_controls_fullscreen_exit"-->
+    <!--        android:orientation="horizontal">-->
+    <!--    </LinearLayout>-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exo_rew"
+            android:layout_weight="5"/>
+        <View
+            android:layout_width="wrap_content"
+            android:id="@+id/exo_ffwd"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layoutDirection="ltr"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:layout_weight="100"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@drawable/controller_background">
+
+            <ImageButton
+                android:id="@id/exo_play"
+                style="@style/ExoMediaButton.Play"
+                android:layout_weight="5"/>
+
+            <ImageButton
+                android:id="@id/exo_pause"
+                style="@style/ExoMediaButton.Pause"
+                android:layout_weight="5"/>
+            <TextView
+                android:id="@+id/tv_play_back_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.0"
+                android:textSize="25dp"
+                android:textColor="#fff"
+                />
+            <TextView
+                android:id="@+id/tv_play_back_speed_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x"
+                android:textSize="25dp"
+                android:textColor="#fff"
+                android:layout_marginRight="@dimen/_5sdp"
+                />
+            <!--            <SeekBar-->
+            <!--                android:splitTrack="false"-->
+            <!--                android:layout_weight="90"-->
+            <!--                android:id="@+id/seekBar_luminosite"-->
+            <!--                android:layout_width="250dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:minHeight="10dp"-->
+            <!--                android:minWidth="15dp"-->
+            <!--                android:maxHeight="15dp"-->
+            <!--                android:maxWidth="15dp"-->
+            <!--                android:progress="50"-->
+            <!--                android:progressDrawable="@drawable/custom_seekbar_progress"-->
+            <!--                android:thumb="@drawable/custom_seekbar_thumb"-->
+            <!--                android:thumbTint="@color/transparent"-->
+            <!--                />-->
+            <TextView
+                android:id="@+id/exo_position"
+                android:textSize="15dp"
+                android:text="000"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:textSize="15dp"
+                android:text=" / "
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/exo_duration"
+                android:textSize="15dp"
+                android:text="000"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <com.google.android.exoplayer2.ui.DefaultTimeBar
+                android:layout_weight="90"
+                android:id="@+id/exo_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                app:buffered_color="#C2C2C2"
+                app:played_color="#D3B92E"
+                app:scrubber_color="@color/colorPrimaryDark"
+                app:unplayed_color="#727272"
+                app:bar_height="20dp"
+                android:scrollbarFadeDuration="200"
+                app:touch_target_height="25dp"
+                app:scrubber_enabled_size="0dp"
+                app:scrubber_dragged_size="0dp" />
+            <TextView
+                android:id="@+id/img_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="360p"
+                android:textColor="#fff"
+                android:textSize="25dp"
+                android:layout_marginRight="5dp"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/img_full_screen_enter_exit"
+                android:src="@drawable/exo_controls_fullscreen_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/resize_player"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/resize"/>
+        </LinearLayout>
+
+        <!--            <ImageView-->
+        <!--                android:contentDescription="my logo"-->
+        <!--                android:src="@drawable/exo_controls_rewind"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"/>-->
+
+    </LinearLayout>
+</RelativeLayout>
