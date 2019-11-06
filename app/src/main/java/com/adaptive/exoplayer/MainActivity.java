@@ -7,11 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
-import android.util.SparseArray;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Surface;
@@ -23,6 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -224,13 +224,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onNewIntent(Intent intent) {
-        releasePlayer();
-        releaseAdsLoader();
-        clearStartPosition();
-        setIntent(intent);
-    }
+//    @Override
+//    public void onNewIntent(Intent intent) {
+//        releasePlayer();
+//        releaseAdsLoader();
+//        clearStartPosition();
+//        setIntent(intent);
+//    }
 
     @Override
     public void onStart() {
