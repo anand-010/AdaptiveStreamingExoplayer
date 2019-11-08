@@ -48,9 +48,5 @@
     <string name="prefer_extension_decoders">Prefer extension decoders</string>
 
     <string name="random_abr">Enable random ABR</string>
-        <string name="ad_tag_url">
-            <![CDATA[https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s
-                &gdfp_req=1&env=vp&output=vast&unviewed_position_start=1
-                &cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=]]>
-        </string>
+    <string name="demo">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 </resources>
