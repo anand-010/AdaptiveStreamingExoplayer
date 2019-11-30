@@ -1,52 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:id="@+id/linearLayout"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        tools:ignore="MissingConstraints"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/search_border"
-        >
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <ImageView
-            android:padding="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="2dp"
-            android:src="@drawable/search" />
+<!--        <LinearLayout-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:weightSum="100"-->
+<!--            tools:ignore="MissingConstraints"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/search_border"-->
+<!--            >-->
 
-        <EditText
-            android:id="@+id/serchStream"
+<!--            <ImageView-->
+<!--                android:padding="10dp"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginRight="2dp"-->
+<!--                android:src="@drawable/search" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/serchStream"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:textSize="30dp"-->
+<!--                android:textColor="#61636F"-->
+<!--                android:textFontWeight="300"-->
+<!--                android:hint="Serch your streams"/>-->
+<!--        </LinearLayout>-->
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:layout_marginRight="10dp"
-            android:textSize="30dp"
-            android:textColor="#61636F"
-            android:textFontWeight="300"
-            android:hint="Serch your streams"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:padding="10dp"
-        android:layout_below="@+id/linearLayout"
-        android:id="@+id/recycler_view"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-</RelativeLayout>
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:padding="10dp"-->
+<!--        android:layout_below="@+id/linearLayout"-->
+<!--        android:id="@+id/recycler_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+<!--    </androidx.recyclerview.widget.RecyclerView>-->

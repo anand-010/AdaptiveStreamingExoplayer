@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Categories">
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        tools:ignore="MissingConstraints"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/search_border"
+        >
+
+        <ImageView
+            android:padding="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:id="@+id/serchStream"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="10dp"
+            android:textSize="30dp"
+            android:textColor="#61636F"
+            android:textFontWeight="300"
+            android:hint="Serch your streams"/>
+    </LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
+        android:layout_marginTop="70dp"
+        android:id="@+id/recycler_vie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</FrameLayout>

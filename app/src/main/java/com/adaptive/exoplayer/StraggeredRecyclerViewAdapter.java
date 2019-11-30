@@ -54,9 +54,9 @@ public class StraggeredRecyclerViewAdapter extends RecyclerView.Adapter<Stragger
             public void onClick(View view) {
                 Log.d(TAG, "onClick: cliecked"+position);
                 Intent intent;
-                intent = new Intent(context, Moive_activity.class);
-                intent.putExtra("movie" , mNames.get(position));
-                intent.putExtra("url", mImageUrls.get(position));
+                intent = new Intent(context, PlayerActivity.class);
+//                intent.putExtra("movie" , mNames.get(position));
+//                intent.putExtra("url", mImageUrls.get(position));
                 intent.putExtra("movie_url", mMovieurl.get(position));
                 context.startActivity(intent);
             }

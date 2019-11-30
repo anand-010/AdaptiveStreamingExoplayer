@@ -16,23 +16,23 @@
     <!--        android:background="@drawable/exo_controls_fullscreen_exit"-->
     <!--        android:orientation="horizontal">-->
     <!--    </LinearLayout>-->
-    <LinearLayout
-        android:visibility="gone"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="10">
-        <View
+        <com.google.android.gms.ads.AdView
+
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/exo_rew"
-            android:layout_weight="5"/>
-        <View
-            android:layout_width="wrap_content"
-            android:id="@+id/exo_ffwd"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"/>
-    </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            ads:adSize="MEDIUM_RECTANGLE"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
