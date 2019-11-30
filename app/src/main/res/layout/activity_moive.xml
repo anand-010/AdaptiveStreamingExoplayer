@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        app:contentPadding="10dp"
+        app:cardElevation="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="2dp"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true">
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,18 +20,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Moive_activity"
-        android:padding="10dp"
-        android:background="#37F37B7B">
+        android:padding="10dp">
 
                 <RelativeLayout
                     android:id="@+id/movie_image"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp">
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingPrefix">
 
                     <ImageView
                         android:id="@+id/movie_cover"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
                         android:src="@drawable/cover" />
 
@@ -65,5 +76,7 @@
                     android:padding="15dp"
                     android:text="@string/demo"
                     android:textSize="20dp" />
+
     </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </ScrollView>

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private static final int NUM_COLUMNS = 2;
+    private static final int NUM_COLUMNS = 4;
     private ArrayList<String> mImageUrls= new ArrayList<String>();
     private ArrayList<String> mNames = new ArrayList<String>();
     private ArrayList<String> mMovieurl = new ArrayList<String>();
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 //                created for test
                 Query query = new Query(serchStream.getText().toString())
                         .setAttributesToRetrieve("title", "image" , "movie_url")
-                        .setHitsPerPage(10);
+                        .setHitsPerPage(100);
                 index.searchAsync(query, new CompletionHandler() {
                     @Override
                     public void requestCompleted(@Nullable JSONObject jsonObject, @Nullable AlgoliaException e) {

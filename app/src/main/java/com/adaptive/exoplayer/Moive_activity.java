@@ -27,6 +27,7 @@ public class Moive_activity extends AppCompatActivity {
         textView.setText(string);
         RequestOptions requestOptions = new RequestOptions();
         Glide.with(this).load(url)
+                .placeholder(R.mipmap.ic_launcher)
                 .apply(requestOptions)
                 .into(imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
