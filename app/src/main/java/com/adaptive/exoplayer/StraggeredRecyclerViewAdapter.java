@@ -13,23 +13,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adaptive.exoplayer.database.Channel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StraggeredRecyclerViewAdapter extends RecyclerView.Adapter<StraggeredRecyclerViewAdapter.ViewHolder>{
     private static final String TAG = "StraggeredRecyclerViewA";
-    ArrayList<String> mNames = new ArrayList<String>();
-    ArrayList<String> mImageUrls = new ArrayList<String>();
-    ArrayList<String> mMovieurl = new ArrayList<String>();
+    List<Channel> channel;
+
 
     Context context;
 
-    public StraggeredRecyclerViewAdapter( Context context, ArrayList<String> mNames, ArrayList<String> mImageUrls ,ArrayList<String> mMovieurl) {
-        this.mNames = mNames;
-        this.mImageUrls = mImageUrls;
-        this.mMovieurl = mMovieurl;
+    public StraggeredRecyclerViewAdapter( Context context, List<Channel> channel) {
+
+        this.channel = new ArrayList<>();
+        this.channel = channel;
         this.context = context;
     }
 
@@ -44,11 +45,11 @@ public class StraggeredRecyclerViewAdapter extends RecyclerView.Adapter<Stragger
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background);
-;        Glide.with(context).load(mImageUrls.get(position))
+                .placeholder(R.drawable.error);
+;        Glide.with(context).load(channel.get(position).getImage())
                 .apply(requestOptions)
                 .into(holder.image);
-        holder.name.setText(mNames.get(position));
+        holder.name.setText(channel.get(position).getName());
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +58,7 @@ public class StraggeredRecyclerViewAdapter extends RecyclerView.Adapter<Stragger
                 intent = new Intent(context, PlayerActivity.class);
 //                intent.putExtra("movie" , mNames.get(position));
 //                intent.putExtra("url", mImageUrls.get(position));
-                intent.putExtra("movie_url", mMovieurl.get(position));
+                intent.putExtra("movie_url", channel.get(position).getUrl());
                 context.startActivity(intent);
             }
         });
@@ -65,7 +66,7 @@ public class StraggeredRecyclerViewAdapter extends RecyclerView.Adapter<Stragger
 
     @Override
     public int getItemCount() {
-        return mImageUrls.size();
+        return channel.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

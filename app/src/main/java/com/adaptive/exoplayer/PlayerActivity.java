@@ -175,11 +175,11 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
 
         setContentView(R.layout.activity_player);
         movie_url = getIntent().getStringExtra("movie_url");
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
         AdView mAdView;
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -398,9 +398,9 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
         else if(view.getId() == R.id.resize_player){
 
             switch (screen_mode){
-                case 0: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL); screen_mode++; break;
-                case 1: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT); screen_mode++; break;
-                case 2: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIXED_HEIGHT); screen_mode++; break;
+                case 0: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIXED_HEIGHT); screen_mode++; break;
+                case 1: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL); screen_mode++; break;
+                case 2: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT); screen_mode++; break;
                 case 3: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIXED_WIDTH); screen_mode++; break;
                 case 4: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM); screen_mode=0; break;
                 default: playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM); screen_mode=0; break;

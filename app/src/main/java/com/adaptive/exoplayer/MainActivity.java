@@ -1,31 +1,29 @@
 package com.adaptive.exoplayer;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.viewpager.widget.ViewPager;
-
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.algolia.search.saas.AlgoliaException;
-import com.algolia.search.saas.Client;
-import com.algolia.search.saas.CompletionHandler;
-import com.algolia.search.saas.Index;
-import com.algolia.search.saas.Query;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.adaptive.exoplayer.database.Channel;
+import com.adaptive.exoplayer.database.DatabaseHelper;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.tabs.TabLayout;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Categories.OnFragmentInteractionListener {
     private static final String TAG = "MainActivity";
@@ -37,11 +35,43 @@ public class MainActivity extends AppCompatActivity implements Categories.OnFrag
     EditText serchStream;
     private SectionPageAdapter sectionPageAdapter;
     private ViewPager mViewPager;
+    private DatabaseHelper mDBHelper;
+    private SQLiteDatabase mDb;
+    List<Channel> channel_name;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        AdView adView = new AdView(this);
+//        adView.setAdSize(AdSize.BANNER);
+//        adView.setAdUnitId("ca-app-pub-9643456042981912/3673781237");
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+// TODO: Add adView to your view hierarchy.
+//        channel_name = new ArrayList<>();
+//        mDBHelper = new DatabaseHelper(this);
+//
+//        try {
+//            mDBHelper.updateDataBase();
+//        } catch (IOException mIOException) {
+//            throw new Error("UnableToUpdateDatabase");
+//        }
+//
+//        try {
+//            mDb = mDBHelper.getWritableDatabase();
+//        } catch (SQLException mSQLException) {
+//            throw mSQLException;
+//        }
+//        channel_name = mDBHelper.getAllchannels();
+//        Log.i(TAG, "onCreate: eee"+channel_name.get(0).getUrl());
 //        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 //        serchStream = (EditText) findViewById(R.id.serchStream);
         sectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
@@ -52,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements Categories.OnFrag
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
 //        initImageBitmaps();
 
@@ -162,9 +192,15 @@ public class MainActivity extends AppCompatActivity implements Categories.OnFrag
 //    }
     private void setupViewPager(ViewPager viewPager) {
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Categories(), "TAB1");
-        adapter.addFragment(new Categories(), "TAB2");
-        adapter.addFragment(new Categories(), "TAB3");
+        adapter.addFragment(new Categories("ALL"), "ALL");
+        adapter.addFragment(new Categories("IND"), "IND");
+        adapter.addFragment(new Categories("ADULT"), "ADULT");
+        adapter.addFragment(new Categories("SPORTS"), "SPORTS");
+        adapter.addFragment(new Categories("MOVIES"), "MOVIES");
+        adapter.addFragment(new Categories("MUSIC"), "MUSIC");
+        adapter.addFragment(new Categories("NEWS"), "NEWS");
+        adapter.addFragment(new Categories("BUSINESS"), "BUSINESS");
+        adapter.addFragment(new Categories("CHN"), "CHN");
         viewPager.setAdapter(adapter);
     }
 
