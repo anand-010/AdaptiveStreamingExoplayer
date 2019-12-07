@@ -5,7 +5,7 @@ Exoplayer with forward, backward, playback speed and one main feature is it will
 
 MIT License
 
-Copyright (c) 2019 Mayur Solanki
+Copyright (c) 2019 Anand s
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
